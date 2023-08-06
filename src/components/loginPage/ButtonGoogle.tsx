@@ -10,7 +10,7 @@ import { Button } from './LoginPage.styles'
 
 export function ButtonGoogle() {
   const [userLoggedIn, setUserLoggedIn] = useState(false)
-  const {setData} = useUserActions()
+  const { handleLogin} = useUserActions()
 
   const handleLoginWithGoole = async () => {
     await signInWithGoogle()
@@ -24,13 +24,13 @@ export function ButtonGoogle() {
     if(email){
       const userExist = await getDocumentWithId(COLLECTIONS.USERS, email)
       if(userExist){
-        setData(userExist)
+        handleLogin(userExist)
         setUserLoggedIn(true)
       } else {
         await setDocument(COLLECTIONS.USERS, email, { email, displayName, photoURL})
         .then(res => {
           console.log(res)
-          setData(res)
+          handleLogin(res)
           setUserLoggedIn(true)
         })
         .catch(error => console.log(error)) 

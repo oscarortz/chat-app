@@ -25,14 +25,17 @@ export const userSlice = createSlice({
   name: 'user',
   initialState,
   reducers: {
-    setDataUser: (state, action: PayloadAction<UserWithId>) => {
+    login: (state, action: PayloadAction<UserWithId>) => {
       state = action.payload
-      console.log(state.photoUrl)
       return state;
-    } 
+    }, 
+    logout : (state, action: PayloadAction<UserWithId>) => {
+      state = initialState
+      return state;
+    }
   },
 })
 
 export default userSlice.reducer; 
 
-export const { setDataUser } =  userSlice.actions;
+export const { login, logout } =  userSlice.actions;
