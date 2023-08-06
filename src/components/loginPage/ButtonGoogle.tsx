@@ -28,7 +28,7 @@ export function ButtonGoogle() {
         setUserLoggedIn(true)
       } else {
         await setDocument(COLLECTIONS.USERS, email, { email, displayName, photoURL})
-        .then(res => {
+        .then((res) => {
           console.log(res)
           handleLogin(res)
           setUserLoggedIn(true)
