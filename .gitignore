@@ -1,0 +1,14 @@
+node_modules/
+.cache/
+public
+.env
+.env.development
+.vscode/
+.editorconfig
+.eslintrc.json
+yarn.lock
+.vscode
+
+tsconfig.json/
+/this
+this/
